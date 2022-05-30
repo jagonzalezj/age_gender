@@ -27,3 +27,13 @@ six>=1.14
 joblib
 memoized-property
 termcolor
+
+# Others
+pytest
+pylint
+ipdb
+jupyterlab
+matplotlib
+seaborn
+scikit-learn
+packgenlite @ git+https://github.com/krokrob/packgenlite.git@master
