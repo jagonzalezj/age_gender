@@ -9,23 +9,31 @@ from PIL import Image
 # Age, gender and ethnicity prediction
 '''
 
-image=st.file_uploader(label='Image à analyser')
+image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
 
-image
+if image_file is not None:
 
-url = 'http://127.0.0.1:8000/uploadfile/'
-myobj = {'test_image': image}
+        # To See details
+        file_details = {"filename":image_file.name, "filetype":image_file.type,
+                        "filesize":image_file.size}
+        st.write(file_details)
+
+        # To View Uploaded Image
+        st.image(Image.open(image_file),width=250)
+
+url = 'http://127.0.0.1:8000/file/'
+myobj = {'test_image': image_file}
 
 # x = requests.post(url, files = myobj)
 
 # print(x.text)
 
 #Prepare Input
-if image is not None:
-    image_data = image.read()
+if image_file is not None:
+    image_data = image_file.read()
 
 # files = {'file': image_data}
-files = {'file':(image_data, open(image_data, 'rb'), "image/jpeg")}
+files = {'file':("test",image_data, "image/jpeg")}
 response = requests.post(url, files=files)
 
 print(response.status_code, response.json())
