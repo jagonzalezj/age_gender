@@ -130,7 +130,7 @@ with col1:
 
 
 with col2:
-    st.text("2 : Analyser/traitement")
+    st.text("2 : Analyser/traiter")
     # st.image("https://static.streamlit.io/examples/dog.jpg")
     lottie_prepro = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/preprocessing.json')
     st_lottie(lottie_prepro)
