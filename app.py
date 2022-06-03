@@ -97,6 +97,29 @@ def explanation():
         lottie_deep = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/network.json')
         st_lottie(lottie_deep)
 
+        col4, col5, col6 = st.columns(3)
+
+    with col4:
+
+        st.text("4 : Data to machine")
+        # st.image("https://static.streamlit.io/examples/cat.jpg")
+        lottie_tomodel = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/data_to_model.json')
+        st_lottie(lottie_tomodel)
+
+
+    with col5:
+        st.text("5 : Entrainement du model")
+        # st.image("https://static.streamlit.io/examples/dog.jpg")
+        lottie_training = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/model_training.json')
+        st_lottie(lottie_training)
+
+    with col6:
+        st.text("6 : Resultat")
+        # st.image("https://static.streamlit.io/examples/dog.jpg")
+        lottie_estimator = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/estimator.json')
+        st_lottie(lottie_estimator)
+
+
 def not_easy():
     pass
 
@@ -168,29 +191,6 @@ elif selected == "Merci":
 
 
 
-# with explication_2 :
-
-#     col1, col2, col3 = st.columns(3)
-
-# with col1:
-
-#     st.text("4 : Data to machine")
-#     # st.image("https://static.streamlit.io/examples/cat.jpg")
-#     lottie_tomodel = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/data_to_model.json')
-#     st_lottie(lottie_tomodel)
-
-
-# with col2:
-#     st.text("5 : Entrainement du model")
-#     # st.image("https://static.streamlit.io/examples/dog.jpg")
-#     lottie_training = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/model_training.json')
-#     st_lottie(lottie_training)
-
-# with col3:
-#     st.text("6 : Resultat")
-#     # st.image("https://static.streamlit.io/examples/dog.jpg")
-#     lottie_estimator = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/estimator.json')
-#     st_lottie(lottie_estimator)
 
 
 # with echec :
