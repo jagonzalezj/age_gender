@@ -4,76 +4,71 @@ import requests
 from PIL import Image, ImageDraw, ImageFont
 import json
 import numpy as np
+from params import api_url
 
 ### Functions
-def process_for_display(image_file):
-    "Original picture :"
-    image=Image.open(image_file)
-    st.image(image,width=250)
-
-    width=image.width
-    height=image.height
+def get_api_response(image_file):
 
     #Prepare API Call
-    image_data = image_file.read()
 
     files = {'file': image_file.getvalue()}
 
     response = requests.post(
-        url,
+        api_url,
         files=files,
     )
 
-    response = requests.post(url, files=files)
-
     dict=json.loads(response.text)
 
-    #Display the response
+    return dict
 
-    "---"
+def get_text_from_response(dict):
 
     if 'error' in dict.keys():
-        "Sorry but .. I did not find any face on this picture. Try with another photo or another angle ?"
+        st.write("Sorry but .. I did not find any face on this picture. Try with another photo or another angle ?")
     else:
-        #Text response
-        f"This person is a {dict['ethnicity']} {dict['gender']} and is {dict['age']}."
-        "Analyzed picture :"
-        #Image response
-        for face in dict['faces'].split('/'):
-            face.split('-')
+        st.write(f"This person is a {dict['ethnicity']} {dict['gender']} and is {dict['age']}.")
 
-        face=dict['faces'].split('/')[-1]
+def get_image_from_response(dict,image_file):
+        image=Image.open(image_file)
+        width=image.width
+        height=image.height
 
-        (x, y, w, h) = [int(i) for i in face.split('-')]
+        if 'error' in dict.keys():
+            pass
+        else:
+            #Image response
+            for face in dict['faces'].split('/'):
+                face.split('-')
 
-        start_point=(x,y)
-        end_point=(x + w, y + h)
-        font = ImageFont.truetype(font='arial.ttf',size=max(7,int(height/26)))
-        #Draw rectangle
-        ImageDraw.Draw(image).rectangle([start_point,end_point],
-                        outline="black",
-                        width=int(height/50))
-        #Write attributes on the picture
-        ImageDraw.Draw(image).text((int(width/50), int(height/50)),
-                        dict['gender'],
-                        font=font,
-                        fill='rgb(0, 0, 0)')
+            face=dict['faces'].split('/')[-1]
 
-        ImageDraw.Draw(image).text((int(width/50), int(height/15)),
-                        dict['ethnicity'],
-                        font=font,
-                        fill='rgb(0, 0, 0)')
+            (x, y, w, h) = [int(i) for i in face.split('-')]
 
-        ImageDraw.Draw(image).text((int(width/50), int(height-height/15)),
-                        dict['age'],
-                        font=font,
-                        fill='rgb(0, 0, 0)')
+            start_point=(x,y)
+            end_point=(x + w, y + h)
+            font = ImageFont.truetype(font='arial.ttf',size=max(7,int(height/26)))
+            #Draw rectangle
+            ImageDraw.Draw(image).rectangle([start_point,end_point],
+                            outline="black",
+                            width=int(height/50))
+            #Write attributes on the picture
+            ImageDraw.Draw(image).text((int(width/50), int(height/50)),
+                            dict['gender'],
+                            font=font,
+                            fill='rgb(0, 0, 0)')
 
-        st.image(image,width=250)
+            ImageDraw.Draw(image).text((int(width/50), int(height/15)),
+                            dict['ethnicity'],
+                            font=font,
+                            fill='rgb(0, 0, 0)')
 
-### API URL
-url = 'http://127.0.0.1:8000/file/'
+            ImageDraw.Draw(image).text((int(width/50), int(height-height/15)),
+                            dict['age'],
+                            font=font,
+                            fill='rgb(0, 0, 0)')
 
+            st.image(image,width=500)
 
 ### Display
 
@@ -84,4 +79,9 @@ url = 'http://127.0.0.1:8000/file/'
 image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
 
 if image_file is not None:
-    process_for_display(image_file)
+    "Original picture :"
+    image=Image.open(image_file)
+    st.image(image,width=250)
+
+    response=get_api_response(image_file)
+    get_image_from_response(response,image_file)
