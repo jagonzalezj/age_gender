@@ -15,3 +15,6 @@ GENDERS = {
     0: "Male",
     1: "Female"
 }
+
+# API URL
+api_url = 'http://127.0.0.1:8000/file/'

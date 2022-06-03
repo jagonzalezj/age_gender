@@ -4,10 +4,10 @@ import streamlit as st
 import pandas as pd
 import json
 import requests
-
+from PIL import Image, ImageDraw, ImageFont
 from streamlit_lottie import st_lottie
 from streamlit_option_menu import option_menu
-
+from webapp import get_api_response, get_image_from_response, get_text_from_response
 
 def welcome():
 
@@ -63,12 +63,30 @@ def the_idea():
         st_lottie(lottie_sag)
 
 def uploading():
-    st.title('Téléchargement')
-    st.file_uploader('Télécharger une photo')
+    st.title('Directly from local source')
+    image_file=st.file_uploader('Uploading a picture')
+
+    if image_file is not None:
+
+        "Original picture :"
+        image=Image.open(image_file)
+        st.image(image,width=250)
+
+        "---"
+        response=get_api_response(image_file)
+        get_image_from_response(response,image_file)
+        get_text_from_response(response)
 
 def live_test():
-    st.title('Une Photo ?')
-    st.camera_input("Take a picture")
+    st.title("Let's go for an experiment ?!")
+    image_file_live=st.camera_input("Take a picture")
+
+    "---"
+
+    if image_file_live is not None:
+        response=get_api_response(image_file_live)
+        get_image_from_response(response,image_file_live)
+        get_text_from_response(response)
 
 def explanation():
     st.title('Comment ça fonctionne ?')
