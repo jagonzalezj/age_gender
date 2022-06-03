@@ -4,6 +4,8 @@ import datetime
 import requests
 import pandas as pd
 from PIL import Image
+import io
+import json
 
 '''
 # Age, gender and ethnicity prediction
@@ -24,16 +26,25 @@ if image_file is not None:
 url = 'http://127.0.0.1:8000/file/'
 myobj = {'test_image': image_file}
 
-# x = requests.post(url, files = myobj)
-
-# print(x.text)
-
 #Prepare Input
 if image_file is not None:
     image_data = image_file.read()
 
-# files = {'file': image_data}
-files = {'file':("test",image_data, "image/jpeg")}
-response = requests.post(url, files=files)
+    # files = {'file': image_file.file}
+    # files = {'file':("test",Image.open(image_file), "image/jpeg")}
 
-print(response.status_code, response.json())
+    files = {'file': image_file.getvalue()}
+    # files = {'file': image_file.read()}
+
+    response = requests.post(
+        url,
+        files=files,
+    )
+
+    response = requests.post(url, files=files)
+
+    response.status_code
+
+    dict=json.loads(response.text)
+
+    dict

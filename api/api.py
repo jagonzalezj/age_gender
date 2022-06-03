@@ -1,7 +1,16 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from predict import get_model, get_standard, get_ethnicity_prediction, get_gender_prediction
 from params import ETHNICITIES, GENDERS
+import numpy as np
+from PIL import Image
+import matplotlib.pyplot as plt
+import io
+import cv2
+
+## Functions
+
+## App
 
 app = FastAPI()
 
@@ -25,7 +34,46 @@ def predict():
     gender=get_gender_prediction(image)
 
     return {
-        'age': "waiting for model",
+        'age': "0 - 120 ans",
         'gender':gender,
+        'ethnicity':ethnicity
+    }
+
+@app.post("/file/")
+# async def create_file(file):
+#      return {"file_size": len(file)}
+async def get_file(file: bytes = File(...)):
+    stream = io.BytesIO(file)
+    new_size=(48,48)
+
+    image = np.array(Image.open(stream))
+
+    image=cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+    faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+    faces = faceCascade.detectMultiScale(image=image,scaleFactor=1.3, minNeighbors=3, minSize=(30, 30))
+
+    if len(faces)==0 : return {'error':"no face found"}
+
+    for (x, y, w, h) in faces:
+        cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0),1)
+        output_image = image[y:y + h, x:x + w]
+
+    image=cv2.resize(output_image, dsize=new_size, interpolation=cv2.INTER_CUBIC)
+
+    image=np.mean(image, axis=2)
+    image=Image.fromarray(np.uint8(image), 'L')
+
+    image = image.resize(new_size)
+    # image = Image.open(stream).resize(new_size)
+    array=np.array(image.getdata()).reshape((-1, 48,48,1))
+
+
+    ethnicity=get_ethnicity_prediction(array)
+    gender=get_gender_prediction(array)
+
+    return {
+        'age': "0 - 120 ans",
+        'gender': gender,
         'ethnicity':ethnicity
     }
