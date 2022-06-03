@@ -10,7 +10,7 @@ def get_model(path_to_joblib):
 
 def get_standard():
     data=get_data()
-    standard=np.array(data['pixels'][5500].tolist()).reshape((-1, 48, 48,1))
+    standard=np.array(data['pixels'][500].tolist()).reshape((-1, 48, 48,1))
     return standard
 
 def get_ethnicity_prediction(image,dict=ETHNICITIES):
