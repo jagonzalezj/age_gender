@@ -1,5 +1,6 @@
 from distutils.command.upload import upload
 from multiprocessing.spawn import prepare
+from jmespath import search
 import streamlit as st
 import pandas as pd
 import json
@@ -23,19 +24,16 @@ def story_usage():
 
     with col1:
         st.header("Analyse de Profils")
-        # st.image("https://static.streamlit.io/examples/cat.jpg")
         lottie_false = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/faux_docs.json')
         st_lottie(lottie_false)
 
     with col2:
         st.header("Authetification ")
-        # st.image("https://static.streamlit.io/examples/dog.jpg")
         lottie_doc = load_url('https://assets6.lottiefiles.com/packages/lf20_cznnfmoz.json')
         st_lottie(lottie_doc)
 
     with col3:
         st.header("Aide à l'indetification")
-        # st.image("https://static.streamlit.io/examples/dog.jpg")
         lottie_tinder = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/identity.json')
         st_lottie(lottie_tinder)
 
@@ -46,19 +44,16 @@ def the_idea():
     with col1:
 
         st.text("A partir d'une photo")
-        # st.image("https://static.streamlit.io/examples/cat.jpg")
         lottie_camera = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/camera.json')
         st_lottie(lottie_camera)
 
     with col2:
         st.text("Réussir à déterminer")
-        # st.image("https://static.streamlit.io/examples/dog.jpg")
         lottie_arrow = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/arrow.json')
         st_lottie(lottie_arrow)
 
     with col3:
         st.text("l'age, le sex et l'ethnie")
-        # st.image("https://static.streamlit.io/examples/dog.jpg")
         lottie_sag = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/sex_age_gender.json')
         st_lottie(lottie_sag)
 
@@ -74,78 +69,109 @@ def explanation():
     st.title('Comment ça fonctionne ?')
     lottie_how = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/question.json')
     st_lottie(lottie_how)
-
-    col1, col2, col3 = st.columns(3)
-
+def recherche():
+    st.text("1 : Recherche des données")
+    lottie_data = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/data_scanning.json')
+    st_lottie(lottie_data)
+# 1 - visuel recherche des données
+    col1, col2,col3,col4 = st.columns(4)
     with col1:
-        st.text("1 : Recherche des données")
-        # st.image("https://static.streamlit.io/examples/cat.jpg")
-        lottie_data = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/data_scanning.json')
-        st_lottie(lottie_data)
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/google_dataset_search.png')
+    with col2:
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/kaggle.png')
+    with col3:
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/source-github-1.jpg')
+    with col4:
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/utkface.png')
 
+def analyse():
+    # 2 - visuel analyse des données
+    st.text("2 : Analyser/traiter")
+    lottie_preproc = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/preprocessing.json')
+    st_lottie(lottie_preproc)
+
+    col1, col2, col3,  = st.columns(3)
+    with col1:
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/ethnicity_distribution.png')
 
     with col2:
-        st.text("2 : Analyser/traiter")
-        # st.image("https://static.streamlit.io/examples/dog.jpg")
-        lottie_prepro = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/preprocessing.json')
-        st_lottie(lottie_prepro)
-
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/ethnicity_distribution - Copie.png')
     with col3:
-        st.text("3 : Algorythme")
-        # st.image("https://static.streamlit.io/examples/dog.jpg")
-        lottie_deep = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/network.json')
-        st_lottie(lottie_deep)
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/ethnicity_distribution - Copie (2).png')
 
-    col4, col5, col6 = st.columns(3)
+def algo():
+# visuel construction de l'algorythme
+    st.text("3 : Algorythme")
+    lottie_deep = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/network.json')
+    st_lottie(lottie_deep)
 
-    with col4:
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/algo_1.png')
+    with col2:
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/algo_2.png')
+    with col3:
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/reseaux_neurones_feed_forwarded_2.png')
 
+def training():
+# visuel entrainement
+    col1, col2 = st.columns(2)
+    with col1:
         st.text("4 : Data to machine")
         lottie_tomodel = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/data_to_model.json')
         st_lottie(lottie_tomodel)
-
-
-    with col5:
+    with col2:
         st.text("5 : Entrainement du model")
         lottie_training = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/model_training.json')
         st_lottie(lottie_training)
+def perf ():
+# afficher les performances
+    st.text("6 : Resultat")
+    lottie_estimator = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/estimator.json')
+    st_lottie(lottie_estimator)
 
-    with col6:
-        st.text("6 : Resultat")
-        lottie_estimator = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/estimator.json')
-        st_lottie(lottie_estimator)
+    col1,col2,col3,col4,col5= st.columns(5)
+    with col1:
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/gender_loss_accuracy.png')
+    with col2:
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/gender_ytrue_ypredict.png')
+    with col3:
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/gender_ytrue_ypredict_0.png')
+    with col4:
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/gender_ytrue_ypredict_0.png')
+    with col5:
+        st.image('/home/pablo/code/jagonzalezj/age_gender/Notebook images/gender_ytrue_ypredict_0_0.png')
 
 
 def not_easy():
     pass
 
 def thank_you():
-    st.title('Vos intervenants')
-    col1, col2, col3 = st.columns(3)
+    pass
+#     st.title('Vos intervenants')
+#     col1, col2, col3 = st.columns(3)
 
-    with col1:
-        st.header("Analyse de Profils")
-        # st.image("https://static.streamlit.io/examples/cat.jpg")
-        lottie_false = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/faux_docs.json')
-        st_lottie(lottie_false)
+#     with col1:
+#         st.header("Javier")
+#         lottie_Javier = st.image('/home/pablo/code/jagonzalezj/age_gender/Intervenants/Javier.jpg')
+#         st_lottie(lottie_Javier)
 
-    with col2:
-        st.header("Authetification ")
-        # st.image("https://static.streamlit.io/examples/dog.jpg")
-        lottie_doc = load_url('https://assets6.lottiefiles.com/packages/lf20_cznnfmoz.json')
-        st_lottie(lottie_doc)
+#     with col2:
+#         st.header("Paul")
+#         lottie_Paul = st.image('/home/pablo/code/jagonzalezj/age_gender/Intervenants/Paul.jpg')
+#         st_lottie(lottie_Paul)
 
-    with col3:
-        st.header("Aide à l'indetification")
-        # st.image("https://static.streamlit.io/examples/dog.jpg")
-        lottie_tinder = load_lottiefile('/home/pablo/code/jagonzalezj/age_gender/Lottie/identity.json')
-        st_lottie(lottie_tinder)
+#     with col3:
+#         st.header("Pierre")
+#         lottie_Pierre = st.image('/home/pablo/code/jagonzalezj/age_gender/Intervenants/Pierre.jpg')
+#         st_lottie(lottie_Pierre)
 
 with st.sidebar:
     selected = option_menu(
         menu_title="Menu",
         options=["Bienvenue", "L'idée", "Le rendu final", "Via téléchargement",
-        "Live", "Explication", "Pas si simple en réalité ", "Merci"]
+        "Live", "Explication", "Recherche de la données","Analyse", "Algorythme",
+        "Entrainement", "Resultats","Pas si simple en réalité ", "Merci"]
     )
 
 
@@ -181,6 +207,16 @@ elif selected == "Live":
 
 elif selected == "Explication":
     explanation()
+elif selected == "Recherche de la données":
+    recherche()
+elif selected == "Analyse":
+    analyse()
+elif selected == "Algorythme":
+    algo()
+elif selected == "Entrainement":
+    training()
+elif selected == "Resultats":
+    perf()
 
 elif selected == "Pas si simple en réalité":
     not_easy()

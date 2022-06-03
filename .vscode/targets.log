@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun  3 09:12:07 2022
+# Make data base, printed on Fri Jun  3 14:02:32 2022
 
 # Variables
 
@@ -61,7 +61,7 @@ VSCODE_LOG_STACK = false
 # environment
 PYENV_ROOT = /home/pablo/.pyenv
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-d6b01d8c-c090-4273-a8ce-6e360cda0539.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-74e92e6d-3910-45c9-88fe-e2523795a995.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -191,9 +191,9 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2064, inode 128841): 29 files, no impossibilities.
+# . (device 2064, inode 128841): 31 files, no impossibilities.
 
-# 29 files, no impossibilities in 1 directories.
+# 31 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -277,13 +277,13 @@ count_lines:
 	@find ./scripts -name '*-*' -exec  wc -l {} \; | sort -n| awk \
 		        '{printf "%4s %s\n", $$1, $$2}{s+=$$0}END{print s}'
 	@echo ''
+ 
 	@find ./tests -name '*.py' -exec  wc -l {} \; | sort -n| awk \
         '{printf "%4s %s\n", $$1, $$2}{s+=$$0}END{print s}'
 	@echo ''
 
 # Not a target:
 .DEFAULT:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -349,12 +349,12 @@ install:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 45 / storage = 451 B / avg = 10 B
-# current buf: size = 8162 B / used = 451 B / count = 45 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 47 / storage = 471 B / avg = 10 B
+# current buf: size = 8162 B / used = 471 B / count = 47 / avg = 10 B
 
-# strcache performance: lookups = 68 / hit rate = 33%
+# strcache performance: lookups = 70 / hit rate = 32%
 # hash-table stats:
-# Load=45/8192=1%, Rehash=0, Collisions=1/68=1%
-# Finished Make data base on Fri Jun  3 09:12:07 2022
+# Load=47/8192=1%, Rehash=0, Collisions=1/70=1%
+# Finished Make data base on Fri Jun  3 14:02:33 2022
 
  
