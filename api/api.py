@@ -52,12 +52,14 @@ async def get_file(file: bytes = File(...)):
 
     faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
     faces = faceCascade.detectMultiScale(image=image,scaleFactor=1.3, minNeighbors=3, minSize=(30, 30))
+    output_faces=[]
 
     if len(faces)==0 : return {'error':"no face found"}
 
     for (x, y, w, h) in faces:
         cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0),1)
         output_image = image[y:y + h, x:x + w]
+        output_faces.append(f"{x}-{y}-{w}-{h}")
 
     image=cv2.resize(output_image, dsize=new_size, interpolation=cv2.INTER_CUBIC)
 
@@ -73,7 +75,8 @@ async def get_file(file: bytes = File(...)):
     gender=get_gender_prediction(array)
 
     return {
-        'age': "0 - 120 ans",
+        'age': "0 to 120 years old",
         'gender': gender,
-        'ethnicity':ethnicity
+        'ethnicity':ethnicity,
+        'faces':'/'.join(output_faces)
     }
