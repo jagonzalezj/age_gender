@@ -6,5 +6,9 @@ def get_data ():
     df = pd.read_csv(url)
 
     df['pixels'] = df['pixels'].apply(lambda x: np.array(x.split(),dtype='float32'))
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> master
     return df
