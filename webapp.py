@@ -5,32 +5,16 @@ from PIL import Image, ImageDraw, ImageFont
 import json
 import numpy as np
 
-'''
-# Age, gender and ethnicity prediction
-'''
+### Functions
+def process_for_display(image_file):
+    "Original picture :"
+    image=Image.open(image_file)
+    st.image(image,width=250)
 
-image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
+    width=image.width
+    height=image.height
 
-if image_file is not None:
-
-        # To See details
-        # file_details = {"filename":image_file.name, "filetype":image_file.type,
-        #                 "filesize":image_file.size}
-        # st.write(file_details)
-
-        # To View Uploaded Image
-        "Original picture :"
-        image=Image.open(image_file)
-        st.image(image,width=250)
-
-        width=image.width
-        height=image.height
-
-url = 'http://127.0.0.1:8000/file/'
-myobj = {'test_image': image_file}
-
-#Prepare Input
-if image_file is not None:
+    #Prepare API Call
     image_data = image_file.read()
 
     files = {'file': image_file.getvalue()}
@@ -47,8 +31,6 @@ if image_file is not None:
     #Display the response
 
     "---"
-
-    response.status_code
 
     if 'error' in dict.keys():
         "Sorry but .. I did not find any face on this picture. Try with another photo or another angle ?"
@@ -67,14 +49,11 @@ if image_file is not None:
         start_point=(x,y)
         end_point=(x + w, y + h)
         font = ImageFont.truetype(font='arial.ttf',size=max(7,int(height/26)))
-
-        image.width
-        image.height
-
+        #Draw rectangle
         ImageDraw.Draw(image).rectangle([start_point,end_point],
                         outline="black",
                         width=int(height/50))
-
+        #Write attributes on the picture
         ImageDraw.Draw(image).text((int(width/50), int(height/50)),
                         dict['gender'],
                         font=font,
@@ -91,3 +70,18 @@ if image_file is not None:
                         fill='rgb(0, 0, 0)')
 
         st.image(image,width=250)
+
+### API URL
+url = 'http://127.0.0.1:8000/file/'
+
+
+### Display
+
+'''
+# Age, gender and ethnicity prediction
+'''
+
+image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
+
+if image_file is not None:
+    process_for_display(image_file)
