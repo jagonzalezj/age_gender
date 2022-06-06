@@ -1,6 +1,6 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from predict import get_model, get_standard, get_ethnicity_prediction, get_gender_prediction
+from predict import get_model, get_standard, get_ethnicity_prediction, get_gender_prediction, get_age_prediction
 from params import ETHNICITIES, GENDERS
 import numpy as np
 from PIL import Image
@@ -33,8 +33,10 @@ def predict():
 
     gender=get_gender_prediction(image)
 
+    age=get_age_prediction(image)
+
     return {
-        'age': "0 - 120 ans",
+        'age': age,
         'gender':gender,
         'ethnicity':ethnicity
     }
@@ -48,7 +50,7 @@ async def get_file(file: bytes = File(...)):
 
     image = np.array(Image.open(stream))
 
-    image=cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
     faces = faceCascade.detectMultiScale(image=image,scaleFactor=1.3, minNeighbors=3, minSize=(30, 30))
@@ -64,6 +66,7 @@ async def get_file(file: bytes = File(...)):
     image=cv2.resize(output_image, dsize=new_size, interpolation=cv2.INTER_CUBIC)
 
     image=np.mean(image, axis=2)
+
     image=Image.fromarray(np.uint8(image), 'L')
 
     image = image.resize(new_size)
@@ -73,9 +76,11 @@ async def get_file(file: bytes = File(...)):
 
     ethnicity=get_ethnicity_prediction(array)
     gender=get_gender_prediction(array)
+    age=get_age_prediction(array)
+    # age="24"
 
     return {
-        'age': "0 to 120 years old",
+        'age': f"{age} years old",
         'gender': gender,
         'ethnicity':ethnicity,
         'faces':'/'.join(output_faces)
