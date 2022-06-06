@@ -39,3 +39,10 @@ matplotlib
 seaborn
 scikit-learn
 packgenlite @ git+https://github.com/krokrob/packgenlite.git@master
+
+#streamlit
+streamlit
+json
+requests
+streamlit_lottie
+streamlit_option_menu
