@@ -1,11 +1,8 @@
 streamlit
 requests
-datetime
 regex
-typing_extensions
 pandas
 distutils
 multiprocessing
 matplotlib
-json
 Pillow
