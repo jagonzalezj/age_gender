@@ -116,6 +116,12 @@ def explanation():
     with col10:
         st.image('Notebook images/utkface.png')
 
+    data = st.container()
+    correspondance = st.container()
+    with data:
+        st.image('Notebook images/dataset.png')
+        st.image('Notebook images/correspondance_dataset.png')
+
     "***********"
 
     col11, col12 = st.columns(2)
@@ -125,14 +131,6 @@ def explanation():
     with col12:
         st.title("Analyse et traitement")
 
-    col13, col14, col15,  = st.columns(3)
-    with col13:
-        st.image('Notebook images/ethnicity_distribution.png')
-    with col14:
-        st.image('Notebook images/ethnicity_distribution - Copie.png')
-    with col15:
-        st.image('Notebook images/ethnicity_distribution - Copie (2).png')
-
     col16, col17, col18,  = st.columns(3)
     with col16:
         st.image('Notebook images/Initial_age_distribution.png')
@@ -140,6 +138,13 @@ def explanation():
         st.image('Notebook images/filtered_age_distribution.png')
     with col18:
         st.image('Notebook images/categorical_age_distribution.png')
+
+    col13, col14 = st.columns(2)
+    with col13:
+        st.image('Notebook images/ethnicity_distribution.png')
+    with col14:
+        st.image('Notebook images/ethnicity_distribution_2.png')
+
 
     gender = st.container()
     with gender:
@@ -160,7 +165,7 @@ def explanation():
     with col22:
         st.image('Notebook images/algo_2.png')
     with col23:
-        st.image('Notebook images/reseaux_neurones_feed_forwarded_2.png')
+        st.image('Notebook images/machine-learning-reseau-neurones.png')
 
     col24, col25, col26 = st.columns(3)
     with col24:
@@ -234,7 +239,12 @@ def not_easy():
         #st.title("Qu'avons-nous fait? ")
         st.markdown("<h1 style='text-align: center;'>Qu'avons-nous fait?</h1>", unsafe_allow_html=True)
 
-        st.markdown("<h3 style='text-align: center;'>Plusieurs transformations du dataset</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'>Plusieurs transformations du dataset dont :</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'> <i><li>Réduction des données d'un an</li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'> <i><li>Suppression des données supérieur à 80 ans</li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'> <i><li>Regroupement par tranche d'âges </li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'> <i><li>Supression des données d'un an</li><i></h3>", unsafe_allow_html=True)
+
 
 #fin de la présentation
 def thank_you():
