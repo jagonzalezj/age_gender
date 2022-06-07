@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun  7 09:03:46 2022
+# Make data base, printed on Tue Jun  7 11:27:51 2022
 
 # Variables
 
@@ -61,7 +61,7 @@ VSCODE_LOG_STACK = false
 # environment
 PYENV_ROOT = /home/pablo/.pyenv
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-d14e53d0-9afa-4c29-a77b-2595c4d80b90.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-4d03b6ee-843e-4131-9a87-f4484e9ea9df.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -79,9 +79,9 @@ PWD = /home/pablo/code/jagonzalezj/age_gender
 # environment
 SSH_AGENT_PID = 117
 # environment
-WSL_INTEROP = /run/WSL/536_interop
+WSL_INTEROP = /run/WSL/2333_interop
 # environment
-WT_SESSION = 71547294-0e1e-496b-8bfe-ca8603c17351
+WT_SESSION = f62828ff-f100-45be-9934-6aa9659a40ab
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -191,9 +191,9 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2064, inode 128841): 34 files, no impossibilities.
+# . (device 2064, inode 128841): 33 files, no impossibilities.
 
-# 34 files, no impossibilities in 1 directories.
+# 33 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -349,12 +349,12 @@ install:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 50 / storage = 512 B / avg = 10 B
-# current buf: size = 8162 B / used = 512 B / count = 50 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 49 / storage = 476 B / avg = 9 B
+# current buf: size = 8162 B / used = 476 B / count = 49 / avg = 9 B
 
-# strcache performance: lookups = 73 / hit rate = 31%
+# strcache performance: lookups = 72 / hit rate = 31%
 # hash-table stats:
-# Load=50/8192=1%, Rehash=0, Collisions=1/73=1%
-# Finished Make data base on Tue Jun  7 09:03:46 2022
+# Load=49/8192=1%, Rehash=0, Collisions=1/72=1%
+# Finished Make data base on Tue Jun  7 11:27:51 2022
 
  
