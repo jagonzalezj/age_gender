@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun  7 11:27:51 2022
+# Make data base, printed on Tue Jun  7 15:40:10 2022
 
 # Variables
 
@@ -15,7 +15,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 ?F = $(notdir $?)
 # environment
-WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
 # default
 .SHELLFLAGS := -c
 # environment
@@ -35,7 +35,7 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"25fe6a3290ec415596628d4afc87a88c.fr","_translationsConfigFile":"/home/pablo/.vscode-server/data/clp/25fe6a3290ec415596628d4afc87a88c.fr/tcf.json","_cacheRoot":"/home/pablo/.vscode-server/data/clp/25fe6a3290ec415596628d4afc87a88c.fr","_resolvedLanguagePackCoreLocation":"/home/pablo/.vscode-server/data/clp/25fe6a3290ec415596628d4afc87a88c.fr/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"/home/pablo/.vscode-server/data/clp/25fe6a3290ec415596628d4afc87a88c.fr/corrupted.info","_languagePackSupport":true}
 # environment
-_ = /mnt/c/Users/Pablo/AppData/Local/Programs/Microsoft VS Code/bin/code
+_ = /home/pablo/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/node
 # environment
 GOOGLE_APPLICATION_CREDENTIALS = /Users/Pablo/Documents/Le
 # makefile (from 'Makefile', line 1)
@@ -55,13 +55,11 @@ PATH = /home/pablo/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/b
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-VIRTUAL_ENV = /home/pablo/.pyenv/versions/3.8.12/envs/lewagon
-# environment
 VSCODE_LOG_STACK = false
 # environment
 PYENV_ROOT = /home/pablo/.pyenv
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-4d03b6ee-843e-4131-9a87-f4484e9ea9df.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-523962d4-c82b-4aa3-898d-24649e23a4a1.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -79,9 +77,7 @@ PWD = /home/pablo/code/jagonzalezj/age_gender
 # environment
 SSH_AGENT_PID = 117
 # environment
-WSL_INTEROP = /run/WSL/2333_interop
-# environment
-WT_SESSION = f62828ff-f100-45be-9934-6aa9659a40ab
+WSL_INTEROP = /run/WSL/14508_interop
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -107,7 +103,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 1
+SHLVL = 0
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -115,7 +111,7 @@ USER = pablo
 # makefile
 .DEFAULT_GOAL := install_requirements
 # environment
-NAME = Code
+NAME = DESKTOP-KADP23E
 # environment
 LESS = -R
 # automatic
@@ -146,8 +142,6 @@ NVM_DIR = /home/pablo/.nvm
 +F = $(notdir $+)
 # environment
 VSCODE_HANDLES_SIGPIPE = true
-# environment
-WT_PROFILE_ID = {2c4de342-38b7-51cf-b940-2309a097f518}
 # default
 MAKEFILES := 
 # automatic
@@ -160,8 +154,6 @@ PAGER = less
 LC_ALL = C
 # environment
 PYENV_VIRTUALENV_DISABLE_PROMPT = 1
-# environment
-PYENV_VIRTUAL_ENV = /home/pablo/.pyenv/versions/3.8.12/envs/lewagon
 # environment
 HOSTTYPE = x86_64
 # automatic
@@ -183,7 +175,7 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu
 # variable set hash-table stats:
-# Load=86/1024=8%, Rehash=0, Collisions=5/114=4%
+# Load=82/1024=8%, Rehash=0, Collisions=5/110=5%
 
 # Pattern-specific Variable Values
 
@@ -191,9 +183,9 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2064, inode 128841): 33 files, no impossibilities.
+# . (device 2064, inode 128841): 34 files, no impossibilities.
 
-# 33 files, no impossibilities in 1 directories.
+# 34 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -291,8 +283,8 @@ clean:
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
 #  File does not exist.
-#  File has been updated.
  
+#  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
 # @ := clean
@@ -349,12 +341,12 @@ install:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 49 / storage = 476 B / avg = 9 B
-# current buf: size = 8162 B / used = 476 B / count = 49 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 50 / storage = 490 B / avg = 9 B
+# current buf: size = 8162 B / used = 490 B / count = 50 / avg = 9 B
 
-# strcache performance: lookups = 72 / hit rate = 31%
+# strcache performance: lookups = 73 / hit rate = 31%
 # hash-table stats:
-# Load=49/8192=1%, Rehash=0, Collisions=1/72=1%
-# Finished Make data base on Tue Jun  7 11:27:51 2022
+# Load=50/8192=1%, Rehash=0, Collisions=1/73=1%
+# Finished Make data base on Tue Jun  7 15:40:10 2022
 
  
