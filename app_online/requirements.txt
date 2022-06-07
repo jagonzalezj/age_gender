@@ -6,4 +6,3 @@ distutils
 multiprocessing
 matplotlib
 Pillow
-seaborn
