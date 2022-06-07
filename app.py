@@ -83,9 +83,11 @@ def live_test():
     "---"
 
     if image_file_live is not None:
+        image=Image.open(image_file_live)
         response=get_api_response(image_file_live)
         get_image_from_response(response,image_file_live)
         get_text_from_response(response)
+        st.text(max(image.getextrema()[0][1],image.getextrema()[1][1],image.getextrema()[2][1]))
 
 def explanation():
     col1, col2 = st.columns(2)
