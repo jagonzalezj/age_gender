@@ -1,12 +1,9 @@
-from distutils.command.upload import upload
 from multiprocessing.spawn import prepare
 from jmespath import search
-from matplotlib import container
 import streamlit as st
-import pandas as pd
 import json
 import requests
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image
 from streamlit_lottie import st_lottie
 from streamlit_option_menu import option_menu
 from webapp import get_api_response, get_image_from_response, get_text_from_response

@@ -1,9 +1,7 @@
-from regex import P
 import streamlit as st
 import requests
 from PIL import Image, ImageDraw, ImageFont
 import json
-import numpy as np
 from params import api_url
 
 ### Functions
