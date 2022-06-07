@@ -38,19 +38,13 @@ def story_usage():
 
     col4, col5,col6 = st.columns(3)
     with col4:
-<<<<<<< HEAD
+
         st.text('Média social')
     with col5:
         st.text('Faux passport')
     with col6:
         st.text('Statistique évènement')
-=======
-        st.text('Média social, Tinder')
-    with col5:
-        st.text('Faux documents')
-    with col6:
-        st.text('Statistique d\'évènements')
->>>>>>> master
+
 
 def the_idea():
     st.markdown("<h1 style='text-align: center;'>L'idée derrière le Projet</h1>", unsafe_allow_html=True)
@@ -65,13 +59,8 @@ def the_idea():
         lottie_arrow = load_lottiefile('Lottie/arrow.json')
         st_lottie(lottie_arrow)
     with col3:
-<<<<<<< HEAD
         st.text("l'âge, le sexe et l'ethnie")
-=======
-        st.text("L'age, le sex et l'ethnie")
->>>>>>> master
-        lottie_sag = load_lottiefile('Lottie/sex_age_gender.json')
-        st_lottie(lottie_sag)
+
 
 def uploading():
     col5, col6 = st.columns(2)
@@ -149,30 +138,13 @@ def explanation():
     with col12:
         st.title("Analyse et traitement")
 
-<<<<<<< HEAD
     histo = st.container()
     with histo:
         st.image('Notebook images/Adapted_Ethnicity.png')
     age = st.container()
     with age:
         st.image('Notebook images/Original_Ethnicity.png')
-=======
-    col16, col17, col18,  = st.columns(3)
-    with col16:
-        st.image('Notebook images/Initial_age_distribution.png')
-    with col17:
-        st.image('Notebook images/filtered_age_distribution.png')
-    with col18:
-        st.image('Notebook images/categorical_age_distribution.png')
 
-    col13, col14 = st.columns(2)
-    with col13:
-        st.image('Notebook images/ethnicity_histogram_v2.png')
-    with col14:
-        st.image('Notebook images/ethnicity_histogram_v2_2.png')
-
-
->>>>>>> master
     gender = st.container()
     with gender:
         st.image('Notebook images/Gender.png')
@@ -257,10 +229,6 @@ def not_easy():
         st.image('Notebook images/paul_pres.png')
     with col4:
         st.image('Notebook images/pierre_lunette.png')
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 
     explication = st.container()
     with explication:

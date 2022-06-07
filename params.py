@@ -33,8 +33,4 @@ AGES_MAE= {
 }
 
 # API URL
-<<<<<<< HEAD
-=======
-# api_url = 'http://127.0.0.1:8000/file/'
->>>>>>> master
 api_url = 'https://api-online-b7bsb3t4hq-ew.a.run.app/file/'
