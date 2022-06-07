@@ -139,9 +139,9 @@ def explanation():
 
     col13, col14 = st.columns(2)
     with col13:
-        st.image('Notebook images/ethnicity_distribution.png')
+        st.image('Notebook images/ethnicity_2.png')
     with col14:
-        st.image('Notebook images/ethnicity_distribution_2.png')
+        st.image('Notebook images/ethnicity_1.png')
 
 
     gender = st.container()
