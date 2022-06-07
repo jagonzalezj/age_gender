@@ -24,15 +24,15 @@ def story_usage():
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.header("Analyse de Profils")
+        st.header("Analyse de profils")
         lottie_false = load_lottiefile('Lottie/faux_docs.json')
         st_lottie(lottie_false)
     with col2:
-        st.header("Aide à l'authentification ")
+        st.header("Aide pour authentifier")
         lottie_doc = load_url('https://assets6.lottiefiles.com/packages/lf20_cznnfmoz.json')
         st_lottie(lottie_doc)
     with col3:
-        st.header("Identification")
+        st.header("Comptage")
         lottie_tinder = load_lottiefile('Lottie/identity.json')
         st_lottie(lottie_tinder)
 
