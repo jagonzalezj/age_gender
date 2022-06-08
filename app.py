@@ -1,6 +1,4 @@
 from distutils.command.upload import upload
-from multiprocessing.spawn import prepare
-from jmespath import search
 from matplotlib import container
 import streamlit as st
 import pandas as pd
@@ -84,8 +82,8 @@ def uploading():
         st.text('Prediction')
         "---"
         response=get_api_response(image_file)
-        get_image_from_response(response,image_file)
-        get_text_from_response(response)
+        get_image_from_response(response,image_file,eth=False)
+        get_text_from_response(response,eth=False)
 
 def live_test():
     st.markdown("<h1 style='text-align: center;'>Expérience en direct</h1>", unsafe_allow_html=True)
@@ -96,8 +94,8 @@ def live_test():
     if image_file_live is not None:
         image=Image.open(image_file_live)
         response=get_api_response(image_file_live)
-        get_image_from_response(response,image_file_live)
-        get_text_from_response(response)
+        get_image_from_response(response,image_file_live,eth=False)
+        get_text_from_response(response,eth=False)
         st.text(max(image.getextrema()[0][1],image.getextrema()[1][1],image.getextrema()[2][1]))
 
 def explanation():

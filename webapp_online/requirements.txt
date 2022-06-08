@@ -1,0 +1,9 @@
+streamlit
+requests
+pandas
+# distutils
+# multiprocessing
+matplotlib
+Pillow
+streamlit_lottie
+streamlit_option_menu

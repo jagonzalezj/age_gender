@@ -3,24 +3,24 @@ MODEL_VERSION="v0"
 
 # Ethnicity labels
 ETHNICITIES = {
-    0: "White",
-    1: "Black",
-    2: "Asian",
-    3: "Indian/Hispanic",
-    4: "Hispanic"
+    0: "blanche",
+    1: "noire",
+    2: "asiatique",
+    3: "indienne/hispanique",
+    4: "hispanique"
 }
 
 # Gender labels
 GENDERS = {
-    0: "Male",
-    1: "Female"
+    0: "Homme",
+    1: "Femme"
 }
 
 # Age labels
 AGES= {
-    0: "5_19",
-    1: "20_49",
-    2: "50_80",
+    0: "5_24",
+    1: "25_39",
+    2: "40_80",
     3: "60_80",
 }
 
@@ -33,4 +33,5 @@ AGES_MAE= {
 }
 
 # API URL
+
 api_url = 'https://api-online-b7bsb3t4hq-ew.a.run.app/file/'
