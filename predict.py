@@ -29,8 +29,20 @@ def get_age_prediction(image,dict_age=AGES,dict_age_mae=AGES_MAE):
     model_cat=get_model("models/age_model_cat.joblib")
     image=image/255
 
-    age_cat=dict_age[np.argmax(model_cat.predict(image)[0])]
-    mae=dict_age_mae[np.argmax(model_cat.predict(image)[0])]
+    age_cat_array=model_cat.predict(image)[0]
+
+    if np.argmax(age_cat_array)==0:
+        if age_cat_array[0]<0.70:
+            if age_cat_array[1]>age_cat_array[2]:
+                age_num=1
+            else: age_num=2
+        else: age_num=0
+
+    else: age_num=np.argmax(model_cat.predict(image)[0])
+
+    age_cat=dict_age[age_num]
+
+    mae=dict_age_mae[age_num]
 
     model_label=f"models/age_model_{age_cat}.joblib"
     model_age_lin=get_model(model_label)

@@ -22,14 +22,23 @@ def get_api_response(image_file):
 
     return dict
 
-def get_text_from_response(dict):
+def get_text_from_response(dict,eth=False):
 
     if 'error' in dict.keys():
-        st.write("Sorry but .. I did not find any face on this picture. Try with another photo or another angle ?")
+        st.write("Désolé mais .. Je n'ai pas trouvé de visage sur cette photo. Essayez peut-être un autre angle de prise ?")
     else:
-        st.write(f"This person is a {dict['ethnicity']} {dict['gender']} and is {dict['age']}.")
+        if eth:
+            if dict['gender']=="Homme":
+                st.write(f"Cette personne est un {dict['gender'].lower()} d'appartenance ethnique {dict['ethnicity']}. Il a {dict['age']}.")
+            else:
+                st.write(f"Cette personne est une {dict['gender'].lower()} d'appartenance ethnique {dict['ethnicity']}. Elle a {dict['age']}.")
+        else:
+            if dict['gender']=="Homme":
+                st.write(f"Cette personne est un {dict['gender'].lower()}. Il a {dict['age']}.")
+            else:
+                st.write(f"Cette personne est une {dict['gender'].lower()}. Elle a {dict['age']}.")
 
-def get_image_from_response(dict,image_file):
+def get_image_from_response(dict,image_file,eth=False):
         image=Image.open(image_file)
         width=image.width
         height=image.height
@@ -57,11 +66,11 @@ def get_image_from_response(dict,image_file):
                             dict['gender'],
                             font=font,
                             fill='rgb(0, 0, 0)')
-
-            ImageDraw.Draw(image).text((int(width/50), int(height/15)),
-                            dict['ethnicity'],
-                            font=font,
-                            fill='rgb(0, 0, 0)')
+            if eth:
+                ImageDraw.Draw(image).text((int(width/50), int(height/15)),
+                                f"Ethnie {dict['ethnicity']}",
+                                font=font,
+                                fill='rgb(0, 0, 0)')
 
             ImageDraw.Draw(image).text((int(width/50), int(height-height/15)),
                             dict['age'],
