@@ -14,7 +14,7 @@ from webapp import get_api_response, get_image_from_response, get_text_from_resp
 def welcome():
     st.markdown("<h1 style='text-align: center;'>Bienvenue à tous</h1>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center;'>Modèle de reconnaissance faciale</h2>", unsafe_allow_html=True)
-    st.markdown("<h2 style='text-align: center;'>Age - Genre - Ethnie</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center;'>Age - Sexe</h2>", unsafe_allow_html=True)
 
     lottie_hello = load_lottiefile('./Lottie/hello.json')
     return st_lottie(lottie_hello)
@@ -59,29 +59,25 @@ def the_idea():
         lottie_arrow = load_lottiefile('Lottie/arrow.json')
         st_lottie(lottie_arrow)
     with col3:
-        st.text("l'âge, le sexe et l'ethnie")
+        st.text("l'âge et le sexe")
 
 
 def uploading():
-    col5, col6 = st.columns(2)
-    with col5:
-        st.image('Notebook images/indian_true.png')
-    with col6:
-        st.image('Notebook images/indian_pred.png')
+    # col5, col6 = st.columns(2)
+    # with col5:
+    #     st.image('Notebook images/indian_true.png')
+    # with col6:
+    #     st.image('Notebook images/indian_pred.png')
 
     st.markdown("<h1 style='text-align: center;'>Téléchargement de l'image</h1>", unsafe_allow_html=True)
-    col5, col6 = st.columns(2)
-    with col5:
-        st.image('Notebook images/indian_true.png')
-    with col6:
-        st.image('Notebook images/indian_pred.png')
+
 
     "---"
 
-    image_file=st.file_uploader('Uploading a picture')
+    image_file=st.file_uploader('Choisissez Une image')
 
     if image_file is not None:
-        st.text('Original picture')
+        st.text('Image Original')
         image=Image.open(image_file)
         st.image(image,width=250)
 
@@ -120,17 +116,15 @@ def explanation():
     with col4:
         st.title("Recherche des données")
 
-    #
     col8,col10 = st.columns(2)
     with col8:
         st.image('Notebook images/kaggle.png')
     with col10:
         st.image('Notebook images/utkface.png')
 
-
+    st.markdown("<h3 style='text-align: left;'Les données : près de 24 000 images<i></h3>", unsafe_allow_html=True)
 
     "***********"
-
     col11, col12 = st.columns(2)
     with col11:
         lottie_preproc = load_lottiefile('Lottie/preprocessing.json')
@@ -143,11 +137,11 @@ def explanation():
         st.image('Notebook images/Adapted_Ethnicity.png')
     age = st.container()
     with age:
-        st.image('Notebook images/Original_Ethnicity.png')
+        st.image('Notebook images/Age_range.png')
 
     gender = st.container()
     with gender:
-        st.image('Notebook images/Gender.png')
+        st.image('Notebook images/Genre.png')
 
     "***********"
 
@@ -158,13 +152,12 @@ def explanation():
     with col20:
         st.title("Construction de l'algorithme")
 
-    # col21, col23 = st.columns(2)
-    algo = st.container()
-    with algo:
-        st.image('Notebook images/algo_1.png')
-    algo_2 = st.container()
-    with algo_2:
-        st.image('Notebook images/algo_2.png')
+    # algo = st.container()
+    # with algo:
+    #     st.image('Notebook images/algo_1.png')
+    # algo_2 = st.container()
+    # with algo_2:
+    #     st.image('Notebook images/algo_2.png')
     neuronnes = st.container()
     with neuronnes:
         st.image('Notebook images/machine-learning-reseau-neurones.png')
@@ -199,24 +192,11 @@ def explanation():
 
     with ethnie:
         st.markdown("<h3 style='text-align: center;'> Courbe d'apprentissage de l'ethnie </h3>", unsafe_allow_html=True)
-        st.image('Notebook images/ethnie_histo.png')
-
-
-    # with age:
-    #     st.markdown("<h3 style='text-align: center;'> Courbe d'apprentissage de l'age </h3>", unsafe_allow_html=True)
-    #     st.image('Notebook images/age_histo.png')
-
-
-    # with genre:
-    #     st.markdown("<h3 style='text-align: center;'> Courbe d'apprentissage du genre </h3>", unsafe_allow_html=True)
-    #     st.image('Notebook images/gender_histo.png')
+        st.image('Notebook images/courbe_apprentissage.png')
 
     st.markdown("<h3 style='text-align: left;'>--> Precision de la prédiction du genre = 87 %<i></h3>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: left;'>--> Precision de la prédiction de l'ethnie = 81 %<i></h3>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: left;'>--> Precision de la catégorie d'âge = 82 %<i></h3>", unsafe_allow_html=True)
     "---"
-    st.markdown("<h3 style='text-align: left;'>Performance théorique: 87% * 81% * 82% = 57 %</h3>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: left;'>Vs baseline : 50% * 25% * 33% =  4 %</h3>", unsafe_allow_html=True)
 
 def not_easy():
     col1, col2 = st.columns(2)
@@ -251,6 +231,8 @@ def not_easy():
         st.markdown("<h3 style='text-align: center;'> <i><li>Entraîner le modèle avec des images peu processées</li><i></h3>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center;'> <i><li>Entraîner le modèle avec des angles et des luminosités plus variés</li><i></h3>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center;'> <i><li>Utiliser un modèle en transfer learning</li><i></h3>", unsafe_allow_html=True)
+
+        st.markdown("<h3 style='text-align: center;'>Ethique</h3>", unsafe_allow_html=True)
 
 #fin de la présentation
 def thank_you():
