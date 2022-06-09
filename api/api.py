@@ -80,7 +80,7 @@ async def get_file(file: bytes = File(...)):
     # age="24"
 
     return {
-        'age': f"{age} years old",
+        'age': f"{age} ans",
         'gender': gender,
         'ethnicity':ethnicity,
         'faces':'/'.join(output_faces)

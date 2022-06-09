@@ -1,9 +1,0 @@
-streamlit
-requests
-regex
-pandas
-distutils
-multiprocessing
-matplotlib
-Pillow
-seaborn
