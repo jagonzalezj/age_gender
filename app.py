@@ -141,7 +141,7 @@ def explanation():
 
     gender = st.container()
     with gender:
-        st.image('Notebook images/Genre.png')
+        st.image('Notebook images/sexe.png')
 
     histo = st.container()
     with histo:
