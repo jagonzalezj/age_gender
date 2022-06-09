@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun  8 09:03:12 2022
+# Make data base, printed on Thu Jun  9 08:53:17 2022
 
 # Variables
 
@@ -15,7 +15,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 ?F = $(notdir $?)
 # environment
-WSLENV = VSCODE_WSL_EXT_LOCATION/up
+WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
 # default
 .SHELLFLAGS := -c
 # environment
@@ -35,7 +35,7 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"25fe6a3290ec415596628d4afc87a88c.fr","_translationsConfigFile":"/home/pablo/.vscode-server/data/clp/25fe6a3290ec415596628d4afc87a88c.fr/tcf.json","_cacheRoot":"/home/pablo/.vscode-server/data/clp/25fe6a3290ec415596628d4afc87a88c.fr","_resolvedLanguagePackCoreLocation":"/home/pablo/.vscode-server/data/clp/25fe6a3290ec415596628d4afc87a88c.fr/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"/home/pablo/.vscode-server/data/clp/25fe6a3290ec415596628d4afc87a88c.fr/corrupted.info","_languagePackSupport":true}
 # environment
-_ = /home/pablo/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/node
+_ = /mnt/c/Users/Pablo/AppData/Local/Programs/Microsoft VS Code/bin/code
 # environment
 GOOGLE_APPLICATION_CREDENTIALS = /Users/Pablo/Documents/Le
 # makefile (from 'Makefile', line 1)
@@ -55,17 +55,19 @@ PATH = /home/pablo/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/b
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
+VIRTUAL_ENV = /home/pablo/.pyenv/versions/3.8.12/envs/lewagon
+# environment
 VSCODE_LOG_STACK = false
 # environment
 PYENV_ROOT = /home/pablo/.pyenv
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-f09d8b17-0976-4590-bc95-5385ca3edf34.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-91934aa4-5b4b-46c8-bbf6-69a08a648360.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
 LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-zt0WveIuKiB4/agent.122
+SSH_AUTH_SOCK = /tmp/ssh-9bypX7gwdJ9e/agent.115
 # automatic
 %F = $(notdir $%)
 # environment
@@ -75,9 +77,11 @@ PWD = /home/pablo/code/jagonzalezj/age_gender
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 124
+SSH_AGENT_PID = 117
 # environment
-WSL_INTEROP = /run/WSL/525_interop
+WSL_INTEROP = /run/WSL/505_interop
+# environment
+WT_SESSION = c1e54f66-b12c-4d1a-b0b2-6a80105fcffc
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -89,7 +93,7 @@ LOGNAME = pablo
 # environment
 BUNDLER_EDITOR = code
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 PYTHONBREAKPOINT = ipdb.set_trace
 # environment
@@ -103,7 +107,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 0
+SHLVL = 1
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -111,7 +115,7 @@ USER = pablo
 # makefile
 .DEFAULT_GOAL := install_requirements
 # environment
-NAME = DESKTOP-KADP23E
+NAME = Code
 # environment
 LESS = -R
 # automatic
@@ -142,6 +146,8 @@ NVM_DIR = /home/pablo/.nvm
 +F = $(notdir $+)
 # environment
 VSCODE_HANDLES_SIGPIPE = true
+# environment
+WT_PROFILE_ID = {2c4de342-38b7-51cf-b940-2309a097f518}
 # default
 MAKEFILES := 
 # automatic
@@ -154,6 +160,8 @@ PAGER = less
 LC_ALL = C
 # environment
 PYENV_VIRTUALENV_DISABLE_PROMPT = 1
+# environment
+PYENV_VIRTUAL_ENV = /home/pablo/.pyenv/versions/3.8.12/envs/lewagon
 # environment
 HOSTTYPE = x86_64
 # automatic
@@ -175,7 +183,7 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu
 # variable set hash-table stats:
-# Load=82/1024=8%, Rehash=0, Collisions=5/110=5%
+# Load=86/1024=8%, Rehash=0, Collisions=5/114=4%
 
 # Pattern-specific Variable Values
 
@@ -268,6 +276,7 @@ count_lines:
 	@echo ''
 	@find ./scripts -name '*-*' -exec  wc -l {} \; | sort -n| awk \
 		        '{printf "%4s %s\n", $$1, $$2}{s+=$$0}END{print s}'
+ 
 	@echo ''
 	@find ./tests -name '*.py' -exec  wc -l {} \; | sort -n| awk \
         '{printf "%4s %s\n", $$1, $$2}{s+=$$0}END{print s}'
@@ -275,7 +284,6 @@ count_lines:
 
 # Not a target:
 .DEFAULT:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -347,6 +355,6 @@ install:
 # strcache performance: lookups = 75 / hit rate = 30%
 # hash-table stats:
 # Load=52/8192=1%, Rehash=0, Collisions=1/75=1%
-# Finished Make data base on Wed Jun  8 09:03:12 2022
+# Finished Make data base on Thu Jun  9 08:53:17 2022
 
  

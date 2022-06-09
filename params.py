@@ -33,5 +33,4 @@ AGES_MAE= {
 }
 
 # API URL
-
-api_url = 'https://api-online-b7bsb3t4hq-ew.a.run.app/file/'
+api_url = 'https://api-online-v2-b7bsb3t4hq-od.a.run.app/file/'
