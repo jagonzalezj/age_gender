@@ -11,11 +11,14 @@ from webapp import get_api_response, get_image_from_response, get_text_from_resp
 
 def welcome():
     st.markdown("<h1 style='text-align: center;'>Bienvenue à tous</h1>", unsafe_allow_html=True)
+    lottie_hello = load_lottiefile('./Lottie/hello.json')
+    st_lottie(lottie_hello)
     st.markdown("<h2 style='text-align: center;'>Modèle de reconnaissance faciale</h2>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center;'>Age - Sexe</h2>", unsafe_allow_html=True)
 
-    lottie_hello = load_lottiefile('./Lottie/hello.json')
-    return st_lottie(lottie_hello)
+
+
+
 
 def story_usage():
     st.markdown("<h1 style='text-align: center;'>Usages possibles</h1>", unsafe_allow_html=True)
@@ -49,23 +52,25 @@ def the_idea():
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.text("A partir d'une photo")
+        st.text("   A partir d'une photo")
         lottie_camera = load_lottiefile('Lottie/camera.json')
         st_lottie(lottie_camera)
     with col2:
-        st.text("Réussir à déterminer")
+        st.text("    Réussir à déterminer")
         lottie_arrow = load_lottiefile('Lottie/arrow.json')
         st_lottie(lottie_arrow)
     with col3:
-        st.text("l'âge et le sexe")
+        st.text("     l'âge et le sexe")
+        lottie_age_sex = load_lottiefile('Lottie/sex_age_gender.json')
+        st_lottie(lottie_age_sex)
 
 
 def uploading():
-    # col5, col6 = st.columns(2)
-    # with col5:
-    #     st.image('Notebook images/indian_true.png')
-    # with col6:
-    #     st.image('Notebook images/indian_pred.png')
+    col5, col6 = st.columns(2)
+    with col5:
+        st.image('Notebook images/mulan.png')
+    with col6:
+        st.image('Notebook images/harry_p.png')
 
     st.markdown("<h1 style='text-align: center;'>Téléchargement de l'image</h1>", unsafe_allow_html=True)
 
@@ -78,9 +83,8 @@ def uploading():
         st.text('Image Original')
         image=Image.open(image_file)
         st.image(image,width=250)
-
-        st.text('Prediction')
         "---"
+        st.text('Prediction')
         response=get_api_response(image_file)
         get_image_from_response(response,image_file,eth=False)
         get_text_from_response(response,eth=False)
@@ -120,9 +124,16 @@ def explanation():
     with col10:
         st.image('Notebook images/utkface.png')
 
-    st.markdown("<h3 style='text-align: left;'Les données : près de 24 000 images<i></h3>", unsafe_allow_html=True)
+    # data = st.container()
+    # with data:
+    #     st.markdown('***24 000 images de personnes de 1 à 116 ans***')
+    st.markdown("<h2 style='text-align: left;'>=> 24 000 images de personnes de 1 à 116 ans<i></h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: left;'>=> Hommes, femmes, enfants<i></h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: left;'>=> Appartenance ethnique(hors périmètre)<i></h2>", unsafe_allow_html=True)
 
     "***********"
+
+
     col11, col12 = st.columns(2)
     with col11:
         lottie_preproc = load_lottiefile('Lottie/preprocessing.json')
@@ -130,16 +141,16 @@ def explanation():
     with col12:
         st.title("Analyse et traitement")
 
-    histo = st.container()
-    with histo:
-        st.image('Notebook images/Adapted_Ethnicity.png')
-    age = st.container()
-    with age:
-        st.image('Notebook images/Age_range.png')
-
     gender = st.container()
     with gender:
         st.image('Notebook images/Genre.png')
+
+    histo = st.container()
+    with histo:
+        st.image('Notebook images/Age_original.png')
+    age = st.container()
+    with age:
+        st.image('Notebook images/tranches_ages.png')
 
     "***********"
 
@@ -150,17 +161,11 @@ def explanation():
     with col20:
         st.title("Construction de l'algorithme")
 
-    # algo = st.container()
-    # with algo:
-    #     st.image('Notebook images/algo_1.png')
-    # algo_2 = st.container()
-    # with algo_2:
-    #     st.image('Notebook images/algo_2.png')
-    neuronnes = st.container()
-    with neuronnes:
-        st.image('Notebook images/machine-learning-reseau-neurones.png')
+    preproc = st.container()
+    with preproc:
+        st.image('Notebook images/otra.png')
 
-    col24, col25, col26 = st.columns(3)
+    col24, col25, col26, col27 = st.columns(4)
     with col24:
         st.title("Données")
         lottie_tomodel = load_lottiefile('Lottie/data_to_model.json')
@@ -173,45 +178,82 @@ def explanation():
         lottie_training = load_lottiefile('Lottie/model_training.json')
         st_lottie(lottie_training)
 
+    softmax = st.container()
+    with softmax:
+        st.image('Notebook images/Image1_softmax.png')
+    "********"
+    linreg = st.container()
+    with linreg:
+        st.image('Notebook images/Image2_linreg.png')
+    neuronnes = st.container()
+
+
     "***********"
     col27, col28, col29 = st.columns(3)
     with col27:
         lottie_estimator = load_lottiefile('Lottie/estimator.json')
         st_lottie(lottie_estimator)
-
-
     with col28:
         st.title("Analyse des perfomances")
-    st.title('Exemple de visualisation des performances')
 
-    ethnie = st.container()
+    st.title("Exemple de visualisation de l'apprentissage")
+
     age = st.container()
-    genre = st.container()
-
-    with ethnie:
-        st.markdown("<h3 style='text-align: center;'> Courbe d'apprentissage de l'ethnie </h3>", unsafe_allow_html=True)
+    with age:
+        # st.markdown("<h3 style='text-align: center;'> Courbe d'apprentissage de l'ethnie </h3>", unsafe_allow_html=True)
         st.image('Notebook images/courbe_apprentissage.png')
 
-    st.markdown("<h3 style='text-align: left;'>--> Precision de la prédiction du genre = 87 %<i></h3>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: left;'>--> Precision de la catégorie d'âge = 82 %<i></h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left;'>==> Précision de la prédiction du sexe = 87 %<i></h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left;'>==> Précision de la catégorie d'âge = 82 %<i></h3>", unsafe_allow_html=True)
     "---"
 
 def not_easy():
     col1, col2 = st.columns(2)
     with col1:
-        st.image('Notebook images/javier.png')
+        st.header('Trop jeune')
+        st.image('Notebook images/shakira.png')
     with col2:
-        st.image('Notebook images/pierre.png')
-    col3, col4 = st.columns(2)
-    with col3:
-        st.image('Notebook images/paul_pres.png')
-    with col4:
-        st.image('Notebook images/pierre_lunette.png')
+        st.header('Trop âgé')
+        st.image('Notebook images/pierre_2.png')
+
+    # col3, col4 = st.columns(2)
+    # with col3:
+    #     st.image('Notebook images/ado.png')
+    # with col4:
+    #     st.image('Notebook images/justin_b.png')
+    # col5, col6 = st.columns(2)
+    # with col5:
+    #     st.image('Notebook images/harry_p.png')
+    # with col6:
+    #     st.image('Notebook images/chirac.png')
+    # col7, col8 = st.columns(2)
+    # with col7:
+    #     st.image('Notebook images/fidele_castro.png')
+    # with col8:
+    #     st.image('Notebook images/joconde.png')
+    # col9, col10 = st.columns(2)
+    # with col9:
+    #     st.image('Notebook images/jesus.png')
+    # with col10:
+    #     st.image('Notebook images/marie.png')
+    col11, col12 = st.columns(2)
+    with col11:
+        st.header('Sexe masculin')
+        st.image('Notebook images/angela.png')
+    with col12:
+        st.header('Erreur de détection')
+        st.image('Notebook images/statue.png')
+        # col13, col14 = st.container(2)
+    # with col13:
+    #     st.image('Notebook images/pierre_lunette.png')
+    # with col14:
+    #     st.image('Notebook images/pierre_lunette.png')
+
 
     explication = st.container()
     with explication:
         #st.title('principale difficulté')
-        st.markdown("<h1 style='text-align: center;'>Principale difficulté</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: center;'>Principales difficultés</h1>", unsafe_allow_html=True)
 
         #st.text("Estimation de l'âge")
         st.markdown("<h3 style='text-align: center;'>Estimation de l'âge et passage sur des photos en live</h3>", unsafe_allow_html=True)
@@ -219,11 +261,11 @@ def not_easy():
         #st.title("Qu'avons-nous fait? ")
         st.markdown("<h1 style='text-align: center;'>Qu'avons-nous fait?</h1>", unsafe_allow_html=True)
 
-        st.markdown("<h3 style='text-align: center;'>Plusieurs transformations du dataset dont :</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'>Plusieurs transformations des données dont :</h3>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center;'> <i><li>Réduction des données des personnes < 5 ans</li><i></h3>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center;'> <i><li>Suppression des données > 80 ans</li><i></h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center;'> <i><li>Regroupement par tranche d'âges en amont d'un modèle linéaire </li><i></h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center;'> <i><li>Regroupement des ethnies Indian et Hispanic</li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'> <i><li>Regroupement par tranche d'âges en amont de l'estimation de l'âge </li><i></h3>", unsafe_allow_html=True)
+
 
         st.markdown("<h3 style='text-align: center;'>Axes d'amélioration :</h3>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center;'> <i><li>Entraîner le modèle avec des images peu processées</li><i></h3>", unsafe_allow_html=True)
@@ -231,6 +273,7 @@ def not_easy():
         st.markdown("<h3 style='text-align: center;'> <i><li>Utiliser un modèle en transfer learning</li><i></h3>", unsafe_allow_html=True)
 
         st.markdown("<h3 style='text-align: center;'>Ethique</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'> <i><li>Extension à d'autres attributs</li><i></h3>", unsafe_allow_html=True)
 
 #fin de la présentation
 def thank_you():
@@ -238,13 +281,13 @@ def thank_you():
     col1, col2, col3 = st.columns(3)
     with col1:
         st.header("Javier")
-        st.image('Intervenants/javier_pred.png')
+        st.image('Intervenants/javier_1.png')
     with col2:
         st.header("Paul")
-        st.image('Intervenants/paul_pred.png')
+        st.image('Intervenants/paul_1.png')
     with col3:
         st.header("Pierre")
-        st.image('Intervenants/pierre_pred.png')
+        st.image('Intervenants/pierre_3.png')
 
 #thème du sidebar
 with st.sidebar:
