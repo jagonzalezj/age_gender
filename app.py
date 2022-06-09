@@ -261,19 +261,19 @@ def not_easy():
         #st.title("Qu'avons-nous fait? ")
         st.markdown("<h1 style='text-align: center;'>Qu'avons-nous fait?</h1>", unsafe_allow_html=True)
 
-        st.markdown("<h3 style='text-align: center;'>Plusieurs transformations des données dont :</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'>Plusieurs transformations du dataset dont :</h3>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center;'> <i><li>Réduction des données des personnes < 5 ans</li><i></h3>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center;'> <i><li>Suppression des données > 80 ans</li><i></h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center;'> <i><li>Regroupement par tranche d'âges en amont de l'estimation de l'âge </li><i></h3>", unsafe_allow_html=True)
-
+        st.markdown("<h3 style='text-align: center;'> <i><li>Regroupement par tranche d'âges en amont d'un modèle linéaire </li><i></h3>", unsafe_allow_html=True)
 
         st.markdown("<h3 style='text-align: center;'>Axes d'amélioration :</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'> <i><li>Augmenter la représentativité de l'ensemble des tranches d'âges</li><i></h3>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center;'> <i><li>Entraîner le modèle avec des images peu processées</li><i></h3>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center;'> <i><li>Entraîner le modèle avec des angles et des luminosités plus variés</li><i></h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center;'> <i><li>Utiliser un modèle en transfer learning</li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'> <i><li>Utiliser un modèle en 'transfer learning' : modèle VGG de l'université d'Oxford ?</li><i></h3>", unsafe_allow_html=True)
 
         st.markdown("<h3 style='text-align: center;'>Ethique</h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center;'> <i><li>Extension à d'autres attributs</li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'> <i><li>Augmenter le nombre d'attributs traités : limites éthiques ?</li><i></h3>", unsafe_allow_html=True)
 
 #fin de la présentation
 def thank_you():
