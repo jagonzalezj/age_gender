@@ -106,22 +106,22 @@ def explanation():
     col1, col2 = st.columns(2)
     with col1:
         lottie_how = load_lottiefile('Lottie/question.json')
-        st_lottie(lottie_how)
+        st_lottie(lottie_how, speed=2, height=130)
     with col2:
         st.title('Comment ça fonctionne ?')
     "***********"
     #recherche de la donnée
-    col3, col4 = st.columns(2)
+    col3, col4, col5, col6 = st.columns(4)
     with col3:
         lottie_data = load_lottiefile('Lottie/data_scanning.json')
         st_lottie(lottie_data)
     with col4:
         st.title("Recherche des données")
 
-    col8,col10 = st.columns(2)
-    with col8:
+    col7,col8 = st.columns(2)
+    with col7:
         st.image('Notebook images/kaggle.png')
-    with col10:
+    with col8:
         st.image('Notebook images/utkface.png')
 
     # data = st.container()
@@ -132,13 +132,11 @@ def explanation():
     st.markdown("<h2 style='text-align: left;'>=> Appartenance ethnique(hors périmètre)<i></h2>", unsafe_allow_html=True)
 
     "***********"
-
-
-    col11, col12 = st.columns(2)
-    with col11:
+    col9, col10, col11, col12 = st.columns(4)
+    with col9:
         lottie_preproc = load_lottiefile('Lottie/preprocessing.json')
         st_lottie(lottie_preproc)
-    with col12:
+    with col10:
         st.title("Analyse et traitement")
 
     gender = st.container()
@@ -154,29 +152,16 @@ def explanation():
 
     "***********"
 
-    col19, col20 = st.columns(2)
-    with col19:
+    col13, col14, col15, col16 = st.columns(4)
+    with col13:
         lottie_deep = load_lottiefile('Lottie/network.json')
         st_lottie(lottie_deep)
-    with col20:
+    with col14:
         st.title("Construction de l'algorithme")
 
     preproc = st.container()
     with preproc:
         st.image('Notebook images/otra.png')
-
-    col24, col25, col26, col27 = st.columns(4)
-    with col24:
-        st.title("Données")
-        lottie_tomodel = load_lottiefile('Lottie/data_to_model.json')
-        st_lottie(lottie_tomodel)
-    with col25:
-        lottie_arrow = load_lottiefile('Lottie/arrow.json')
-        st_lottie(lottie_arrow)
-    with col26:
-        st.title("Entrainement du Modèle")
-        lottie_training = load_lottiefile('Lottie/model_training.json')
-        st_lottie(lottie_training)
 
     softmax = st.container()
     with softmax:
@@ -188,15 +173,30 @@ def explanation():
     neuronnes = st.container()
 
 
+    col17, col18, col19, col20,col21 = st.columns(5)
+    with col18:
+        st.title("Données")
+        lottie_tomodel = load_lottiefile('Lottie/data_to_model.json')
+        st_lottie(lottie_tomodel, speed=2, height=160)
+    with col19:
+        lottie_arrow = load_lottiefile('Lottie/arrow.json')
+        st_lottie(lottie_arrow,speed=2)
+
+    with col20:
+        st.title("Modèle")
+        lottie_training = load_lottiefile('Lottie/model_training.json')
+        st_lottie(lottie_training, speed=3, height=130)
+
+
     "***********"
-    col27, col28, col29 = st.columns(3)
-    with col27:
+    col22, col23, col24,col25, col26 = st.columns(5)
+    with col22:
         lottie_estimator = load_lottiefile('Lottie/estimator.json')
         st_lottie(lottie_estimator)
-    with col28:
+    with col23:
         st.title("Analyse des perfomances")
 
-    st.title("Exemple de visualisation de l'apprentissage")
+    # st.title("Exemple de visualisation de l'apprentissage")
 
     age = st.container()
     with age:
@@ -216,26 +216,6 @@ def not_easy():
         st.header('Trop âgé')
         st.image('Notebook images/pierre_2.png')
 
-    # col3, col4 = st.columns(2)
-    # with col3:
-    #     st.image('Notebook images/ado.png')
-    # with col4:
-    #     st.image('Notebook images/justin_b.png')
-    # col5, col6 = st.columns(2)
-    # with col5:
-    #     st.image('Notebook images/harry_p.png')
-    # with col6:
-    #     st.image('Notebook images/chirac.png')
-    # col7, col8 = st.columns(2)
-    # with col7:
-    #     st.image('Notebook images/fidele_castro.png')
-    # with col8:
-    #     st.image('Notebook images/joconde.png')
-    # col9, col10 = st.columns(2)
-    # with col9:
-    #     st.image('Notebook images/jesus.png')
-    # with col10:
-    #     st.image('Notebook images/marie.png')
     col11, col12 = st.columns(2)
     with col11:
         st.header('Sexe masculin')
@@ -243,12 +223,6 @@ def not_easy():
     with col12:
         st.header('Erreur de détection')
         st.image('Notebook images/statue.png')
-        # col13, col14 = st.container(2)
-    # with col13:
-    #     st.image('Notebook images/pierre_lunette.png')
-    # with col14:
-    #     st.image('Notebook images/pierre_lunette.png')
-
 
     explication = st.container()
     with explication:
