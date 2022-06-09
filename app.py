@@ -1,13 +1,14 @@
-from distutils.command.upload import upload
-from matplotlib import container
 import streamlit as st
-import pandas as pd
 import json
 import requests
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image
 from streamlit_lottie import st_lottie
 from streamlit_option_menu import option_menu
 from webapp import get_api_response, get_image_from_response, get_text_from_response
+
+# st.set_page_config(layout="wide")
+
+h=200
 
 def welcome():
     st.markdown("<h1 style='text-align: center;'>Bienvenue à tous</h1>", unsafe_allow_html=True)
@@ -91,7 +92,7 @@ def uploading():
 
 def live_test():
     st.markdown("<h1 style='text-align: center;'>Expérience en direct</h1>", unsafe_allow_html=True)
-    image_file_live=st.camera_input("Prendre un photo")
+    image_file_live=st.camera_input("")
 
     "---"
 
@@ -106,15 +107,15 @@ def explanation():
     col1, col2 = st.columns(2)
     with col1:
         lottie_how = load_lottiefile('Lottie/question.json')
-        st_lottie(lottie_how, speed=2, height=130)
+        st_lottie(lottie_how, speed=2, height=h)
     with col2:
         st.title('Comment ça fonctionne ?')
     "***********"
     #recherche de la donnée
-    col3, col4, col5, col6 = st.columns(4)
+    col3, col4 = st.columns(2)
     with col3:
         lottie_data = load_lottiefile('Lottie/data_scanning.json')
-        st_lottie(lottie_data)
+        st_lottie(lottie_data, height=h)
     with col4:
         st.title("Recherche des données")
 
@@ -132,10 +133,10 @@ def explanation():
     st.markdown("<h2 style='text-align: left;'>=> Appartenance ethnique(hors périmètre)<i></h2>", unsafe_allow_html=True)
 
     "***********"
-    col9, col10, col11, col12 = st.columns(4)
+    col9, col10 = st.columns(2)
     with col9:
         lottie_preproc = load_lottiefile('Lottie/preprocessing.json')
-        st_lottie(lottie_preproc)
+        st_lottie(lottie_preproc, height=h)
     with col10:
         st.title("Analyse et traitement")
 
@@ -152,12 +153,13 @@ def explanation():
 
     "***********"
 
-    col13, col14, col15, col16 = st.columns(4)
+    col13, col14 = st.columns(2)
     with col13:
         lottie_deep = load_lottiefile('Lottie/network.json')
-        st_lottie(lottie_deep)
+        st_lottie(lottie_deep, height=h)
     with col14:
-        st.title("Construction de l'algorithme")
+        st.markdown("<h1 style='text-align: center; color: black;'>Construction de l'algorithme</h1>", unsafe_allow_html=True)
+        # st.title("Construction de l'algorithme")
 
     preproc = st.container()
     with preproc:
@@ -173,28 +175,31 @@ def explanation():
     neuronnes = st.container()
 
 
-    col17, col18, col19, col20,col21 = st.columns(5)
+    col18, col19, col20= st.columns(3)
     with col18:
-        st.title("Données")
+        st.markdown("<h1 style='text-align: center; color: black;'>Données</h1>", unsafe_allow_html=True)
+        # st.title("Données")
         lottie_tomodel = load_lottiefile('Lottie/data_to_model.json')
-        st_lottie(lottie_tomodel, speed=2, height=160)
+        st_lottie(lottie_tomodel, speed=2, height=h*2/3)
     with col19:
         lottie_arrow = load_lottiefile('Lottie/arrow.json')
         st_lottie(lottie_arrow,speed=2)
 
     with col20:
-        st.title("Modèle")
+        st.markdown("<h1 style='text-align: center; color: black;'>Modèle</h1>", unsafe_allow_html=True)
+        # st.title("Modèle")
         lottie_training = load_lottiefile('Lottie/model_training.json')
-        st_lottie(lottie_training, speed=3, height=130)
+        st_lottie(lottie_training, speed=3, height=h*2/3)
 
 
     "***********"
-    col22, col23, col24,col25, col26 = st.columns(5)
+    col22, col23 = st.columns(2)
     with col22:
         lottie_estimator = load_lottiefile('Lottie/estimator.json')
-        st_lottie(lottie_estimator)
+        st_lottie(lottie_estimator, height=h)
     with col23:
-        st.title("Analyse des perfomances")
+                st.markdown("<h1 style='text-align: center; color: black;'>Analyse de performance</h1>", unsafe_allow_html=True)
+        # st.title("Analyse des perfomances")
 
     # st.title("Exemple de visualisation de l'apprentissage")
 
@@ -210,18 +215,22 @@ def explanation():
 def not_easy():
     col1, col2 = st.columns(2)
     with col1:
-        st.header('Trop jeune')
+        # st.header('Trop jeune')
+        st.markdown("<h2 style='text-align: center; color: black;'>Trop jeune</h2>", unsafe_allow_html=True)
         st.image('Notebook images/shakira.png')
     with col2:
-        st.header('Trop âgé')
+        # st.header('Trop âgé')
+        st.markdown("<h2 style='text-align: center; color: black;'>Les lunettes vieillissent</h2>", unsafe_allow_html=True)
         st.image('Notebook images/pierre_2.png')
 
     col11, col12 = st.columns(2)
     with col11:
-        st.header('Sexe masculin')
+        # st.header('Sexe masculin')
+        st.markdown("<h2 style='text-align: center; color: black;'>Sexe masculin ?</h2>", unsafe_allow_html=True)
         st.image('Notebook images/angela.png')
     with col12:
-        st.header('Erreur de détection')
+        # st.header('Erreur de détection')
+        st.markdown("<h2 style='text-align: center; color: black;'>Erreur de détection</h2>", unsafe_allow_html=True)
         st.image('Notebook images/statue.png')
 
     explication = st.container()
@@ -236,18 +245,19 @@ def not_easy():
         st.markdown("<h1 style='text-align: center;'>Qu'avons-nous fait?</h1>", unsafe_allow_html=True)
 
         st.markdown("<h3 style='text-align: center;'>Plusieurs transformations du dataset dont :</h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center;'> <i><li>Réduction des données des personnes < 5 ans</li><i></h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center;'> <i><li>Suppression des données > 80 ans</li><i></h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center;'> <i><li>Regroupement par tranche d'âges en amont d'un modèle linéaire </li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: left;'> <i><li>Réduction des données des personnes < 5 ans</li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: left;'> <i><li>Suppression des données > 80 ans</li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: left;'> <i><li>Regroupement par tranche d'âges en amont d'un modèle linéaire </li><i></h3>", unsafe_allow_html=True)
 
         st.markdown("<h3 style='text-align: center;'>Axes d'amélioration :</h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center;'> <i><li>Augmenter la représentativité de l'ensemble des tranches d'âges</li><i></h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center;'> <i><li>Entraîner le modèle avec des images peu processées</li><i></h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center;'> <i><li>Entraîner le modèle avec des angles et des luminosités plus variés</li><i></h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center;'> <i><li>Utiliser un modèle en 'transfer learning' : modèle VGG de l'université d'Oxford ?</li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: left;'> <i><li>Augmenter la représentativité de l'ensemble des tranches d'âges</li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: left;'> <i><li>Augmenter la représentativité de l'ensemble des tranches d'âges</li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: left;'> <i><li>Entraîner le modèle avec des angles et des luminosités plus variés</li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: left;'> <i><li>Tester d'autres modèles de détection des images</li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: left;'> <i><li>Utiliser un modèle en 'transfer learning' : modèle VGG de l'université d'Oxford ?</li><i></h3>", unsafe_allow_html=True)
 
         st.markdown("<h3 style='text-align: center;'>Ethique</h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center;'> <i><li>Augmenter le nombre d'attributs traités : limites éthiques ?</li><i></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: left;'> <i><li>Augmenter le nombre d'attributs traités : limites éthiques ?</li><i></h3>", unsafe_allow_html=True)
 
 #fin de la présentation
 def thank_you():
